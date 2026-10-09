@@ -1,0 +1,53 @@
+{
+  "name": "mcp-practice-management-server",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server that exposes a professional-services practice-management system (contacts, matters, tasks, time) to AI agents, with server-side auth, human-in-the-loop writes, idempotency and audit logging.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Juan Carlos Amay (https://github.com/Juankia)",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "ai-agents",
+    "practice-management",
+    "typescript"
+  ],
+  "bin": {
+    "mcp-practice-management-server": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/index.ts",
+    "dev:http": "MCP_TRANSPORT=http tsx src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "pino": "^10.4.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^20.19.43",
+    "eslint": "^10.12.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.1",
+    "vitest": "^3.2.7"
+  }
+}
